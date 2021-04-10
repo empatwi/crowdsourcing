@@ -1,19 +1,24 @@
 from flask import Flask, request, Response
 from database.db import initialize_db
 from database.models.movie import Movie
+from database.models.tweet import Tweet
 
 app = Flask(__name__)
 
 app.config['MONGODB_SETTINGS'] = {
-    'host': 'mongodb://localhost/movie-bag'
+    'host': 'mongodb://localhost/empatwi'
 }
 
 initialize_db(app)
 
-@app.route('/movies')
-def get_movies():
-    movies = Movie.objects().to_json()
-    return Response(movies, mimetype="application/json", status=200)
+@app.route('/')
+def start():
+    return 'Welcome to Empatwi'
+
+@app.route('/tweets')
+def get_tweets():
+    tweets = Tweet.objects().to_json()
+    return Response(tweets, mimetype="application/json", status=200)
 
 @app.route('/movies', methods=['POST'])
 def add_movie():
