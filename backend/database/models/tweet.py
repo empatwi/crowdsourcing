@@ -1,7 +1,7 @@
 from ..db import db
 
 class Tweet(db.Document):
-    #created_at = db.(datetime) //TODO
+    created_at = db.DateTimeField(required=True)
     tweet_content = db.StringField(required=True, unique=True)
     user_location = db.StringField(required=False)
     keywords = db.ListField(db.StringField(), required=True)
