@@ -1,9 +1,11 @@
 from ..db import db
+from .classification import Classification
+from .entities import Entities
 
 class Tweet(db.Document):
     created_at = db.DateTimeField(required=True)
     tweet_content = db.StringField(required=True, unique=True)
     user_location = db.StringField(required=False)
     keywords = db.ListField(db.StringField(), required=True)
-    #classification = array de obj //TODO
-    #entities = array de obj //TODO
+    classification = db.ListField(db.EmbeddedDocumentField(Classification))
+    entities = db.EmbeddedDocumentField(Entities)

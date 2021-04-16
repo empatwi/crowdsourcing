@@ -1,4 +1,4 @@
 from ..db import db
 
-class Entities(db.Document):
+class Entities(db.EmbeddedDocument):
     entities = db.ListField(db.StringField())
