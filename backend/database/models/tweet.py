@@ -6,6 +6,6 @@ class Tweet(db.Document):
     created_at = db.DateTimeField(required=True)
     tweet_content = db.StringField(required=True, unique=True)
     user_location = db.StringField(required=False)
-    keywords = db.ListField(db.StringField(), required=True)
+    keyword = db.ListField(db.StringField(), required=True)
     classification = db.ListField(db.EmbeddedDocumentField(Classification))
     entities = db.EmbeddedDocumentField(Entities)
