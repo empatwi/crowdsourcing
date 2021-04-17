@@ -20,6 +20,56 @@
   "plugins": ["react"],
   "rules": {
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "react/react-in-jsx-scope": "off"
+
+    // eslint-plugin-react
+    "react/destructuring-assignment": ["warn", "always"],
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "warn",
+    "react/sort-comp": "warn",
+    "react/sort-prop-types": "warn",
+
+    // JSX
+    "react/jsx-boolean-value": ["error", "never"],
+    "react/jsx-child-element-spacing": "warn",
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".js", ".jsx"] }
+    ],
+    "react/jsx-fragments": "error",
+    "react/jsx-handler-names": "error",
+    "react/jsx-newline": ["warn", { "prevent": false }],
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "ignoreDOMComponents": true,
+        "allowArrowFunctions": true
+      }
+    ],
+    "react/jsx-no-comment-textnodes": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/jsx-pascal-case": "error",
+    "react/jsx-sort-default-props": "warn",
+    "react/jsx-sort-props": "warn",
+    "react/jsx-wrap-multilines": "error",
+
+    // eslint-plugin-import
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   }
 }
