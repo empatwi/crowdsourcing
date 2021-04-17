@@ -1,14 +1,12 @@
 import './App.css';
-import logo from './logo.svg';
+import ButtonComponent from './components/Button';
+import { Container } from '@material-ui/core';
 
 function App() {
   return (
-    <div className="App">
+    <Container disableGutters maxWidth="false">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>Contribua com o empatwi</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,8 +15,9 @@ function App() {
         >
           Learn React
         </a>
+        <ButtonComponent text="Positivo" />
       </header>
-    </div>
+    </Container>
   );
 }
 
