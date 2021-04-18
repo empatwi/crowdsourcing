@@ -20,7 +20,8 @@
   "plugins": ["react"],
   "rules": {
     // eslint
-    "sort-keys": "error",
+    "no-unused-vars": "warn",
+    "sort-keys": "warn",
 
     // eslint-plugin-prettier
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
@@ -41,7 +42,6 @@
     ],
     "react/jsx-fragments": "error",
     "react/jsx-handler-names": "error",
-    "react/jsx-newline": ["warn", { "prevent": false }],
     "react/jsx-no-bind": [
       "error",
       {
