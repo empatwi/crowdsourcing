@@ -1,22 +1,27 @@
 import './App.css';
-import ButtonComponent from './components/Button';
 import { Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import HeaderComponent from './components/Header';
+import { colors } from './utils/colors';
+import { header } from './utils/texts';
+
+const useStyles = makeStyles({
+  main: {
+    backgroundColor: colors.lightGreen,
+    display: 'flex',
+    flexDirection: 'column',
+    fontSize: '10px' + '2vmin',
+    height: '100vh',
+    width: '100vw',
+  },
+});
 
 function App() {
+  const classes = useStyles();
+
   return (
-    <Container disableGutters maxWidth="false">
-      <header className="App-header">
-        <p>Contribua com o empatwi</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <ButtonComponent text="Positivo" />
-      </header>
+    <Container className={classes.main} disableGutters maxWidth={false}>
+      <HeaderComponent tabs={header.tabs} />
     </Container>
   );
 }
