@@ -1,7 +1,8 @@
-import { Container, SvgIcon } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { colors } from '../../utils/colors';
 import { theme } from '../../utils/theme';
+import TouchableIconComponent from '../TouchableIcon';
 
 const styles = {
   container: {
@@ -12,9 +13,12 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     height: '10vh',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     position: 'absolute',
     width: '100vw',
+  },
+  leftText: {
+    fontSize: '2vw' + '2vmin',
   },
 };
 
@@ -25,20 +29,35 @@ const propTypes = {
       url: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  text: PropTypes.string,
 };
 
-export default function FooterComponent({ items }) {
+const defaultProps = {
+  text: '',
+};
+
+export default function FooterComponent({ items, text }) {
   return (
     <Container
       disableGutters
       maxWidth={false}
       style={{ ...theme.padding, ...styles.container }}
     >
+      <p style={styles.leftText}>{text}</p>
       {items.map(item => {
-        return <SvgIcon key={item}>{item.icon}</SvgIcon>;
+        return (
+          <TouchableIconComponent
+            icon={item.icon}
+            key={item}
+            onPress={() => {
+              console.log('oiii');
+            }}
+          />
+        );
       })}
     </Container>
   );
 }
 
 FooterComponent.propTypes = propTypes;
+FooterComponent.defaultProps = defaultProps;
