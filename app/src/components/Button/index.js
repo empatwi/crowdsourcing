@@ -17,7 +17,6 @@ const styles = {
 };
 
 const propTypes = {
-  icon: PropTypes.string,
   isEnabled: PropTypes.bool,
   isSelected: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
@@ -26,14 +25,12 @@ const propTypes = {
 };
 
 const defaultProps = {
-  icon: '',
   isEnabled: true,
   isSelected: false,
   tab: false,
 };
 
 export default function ButtonComponent({
-  icon,
   isEnabled,
   isSelected,
   onClick,
