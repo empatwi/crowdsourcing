@@ -6,4 +6,5 @@ export const header = {
 
 export const footer = {
   links: [{ icon: <TwitterIcon />, url: 'www.twitter.com' }],
+  text: '© Empatwi 2021',
 };
