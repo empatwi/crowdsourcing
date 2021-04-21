@@ -6,7 +6,7 @@ const size = 24;
 
 const styles = {
   button: {
-    marginLeft: '16px',
+    marginLeft: 16,
   },
   default: {
     color: colors.white,

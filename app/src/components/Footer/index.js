@@ -8,13 +8,11 @@ const styles = {
   container: {
     alignItems: 'center',
     backgroundColor: colors.darkGray,
-    bottom: 0,
     color: colors.white,
     display: 'flex',
     flexDirection: 'row',
     height: '10vh',
     justifyContent: 'space-between',
-    position: 'absolute',
     width: '100vw',
   },
   leftText: {
