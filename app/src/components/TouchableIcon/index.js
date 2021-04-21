@@ -5,6 +5,9 @@ import { colors } from '../../utils/colors';
 const size = 24;
 
 const styles = {
+  button: {
+    marginLeft: '16px',
+  },
   default: {
     color: colors.white,
     height: size,
@@ -19,7 +22,7 @@ const propTypes = {
 
 export default function TouchableIconComponent({ icon, onPress }) {
   return (
-    <ButtonBase onClick={onPress}>
+    <ButtonBase onClick={onPress} style={styles.button}>
       <SvgIcon style={styles.default}>{icon}</SvgIcon>
     </ButtonBase>
   );
