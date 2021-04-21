@@ -1,3 +1,25 @@
+## Instruções
+
+Para executar o projeto, é necessário ter:
+
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/getting-started/install#about-global-installs)
+
+Após corretamente instalados, basta navegar para o diretório **/app** por meio de uma interface de linha de comandos, e executar:
+
+1. `yarn install`
+2. `yarn start`
+
+Voilà! Talvez demore um pouquinho, mas a aplicação será executada na porta 3000 do localhost, e uma aba nova do seu navegador será aberta nesse endereço automaticamente.
+
+A partir disso, ao salvar alterações em qualquer arquivo, é feito um reload da página, adivinha, automaticamente (porém de vez em quando não funciona para mim e preciso dar refresh manual).
+
+Todos os erros e warnings de linter aparecerão tanto no terminal, quanto no console do navegador.
+
+Abaixo segue o README original do Create React App.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
