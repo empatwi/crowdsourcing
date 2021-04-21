@@ -1,27 +1,26 @@
 import './App.css';
 import { Container } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import FooterComponent from './components/Footer';
 import HeaderComponent from './components/Header';
 import { colors } from './utils/colors';
-import { header } from './utils/texts';
+import { footer, header } from './utils/texts';
 
-const useStyles = makeStyles({
+const styles = {
   main: {
     backgroundColor: colors.lightGreen,
     display: 'flex',
     flexDirection: 'column',
-    fontSize: '10px' + '2vmin',
+    // fontSize: '10px' + '2vmin',
     height: '100vh',
     width: '100vw',
   },
-});
+};
 
 function App() {
-  const classes = useStyles();
-
   return (
-    <Container className={classes.main} disableGutters maxWidth={false}>
+    <Container disableGutters maxWidth={false} style={styles.main}>
       <HeaderComponent tabs={header.tabs} />
+      <FooterComponent items={footer.links} />
     </Container>
   );
 }
