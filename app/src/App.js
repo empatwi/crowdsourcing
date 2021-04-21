@@ -20,7 +20,7 @@ function App() {
   return (
     <Container disableGutters maxWidth={false} style={styles.main}>
       <HeaderComponent tabs={header.tabs} />
-      <FooterComponent items={footer.links} />
+      <FooterComponent items={footer.links} text={footer.text} />
     </Container>
   );
 }
