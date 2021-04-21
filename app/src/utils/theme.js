@@ -1,6 +1,6 @@
 export const theme = {
   padding: {
-    paddingLeft: '24px',
-    paddingRight: '24px',
+    paddingLeft: '24',
+    paddingRight: '24',
   },
 };
