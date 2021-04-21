@@ -5,13 +5,14 @@ import { colors } from '../../utils/colors';
 const styles = {
   button: {
     color: colors.darkGray,
-    fontSize: '16px',
+    fontSize: '2vh',
   },
   selectedTab: {
+    fontWeight: 'bold',
     textDecoration: 'underline',
   },
   tab: {
-    marginLeft: '16px',
+    marginLeft: '4vw',
   },
 };
 
@@ -43,13 +44,11 @@ export default function ButtonComponent({
     <ButtonBase
       disabled={!isEnabled}
       onClick={onClick}
-      style={
-        tab
-          ? isSelected
-            ? { ...styles.button, ...styles.tab, ...styles.selectedTab }
-            : { ...styles.button, ...styles.tab }
-          : styles.button
-      }
+      style={{
+        ...styles.button,
+        ...(tab ? styles.tab : {}),
+        ...(tab && isSelected ? styles.selectedTab : {}),
+      }}
       variant="contained"
     >
       {text}
