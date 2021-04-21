@@ -1,3 +1,4 @@
+import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
 export const header = {
@@ -5,6 +6,9 @@ export const header = {
 };
 
 export const footer = {
-  links: [{ icon: <TwitterIcon />, url: 'www.twitter.com' }],
+  links: [
+    { icon: <TwitterIcon />, url: 'https://twitter.com/empatwi' },
+    { icon: <GitHubIcon />, url: 'https://github.com/empatwi' },
+  ],
   text: '© Empatwi 2021',
 };

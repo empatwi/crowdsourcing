@@ -44,17 +44,19 @@ export default function FooterComponent({ items, text }) {
       style={{ ...theme.padding, ...styles.container }}
     >
       <p style={styles.leftText}>{text}</p>
-      {items.map(item => {
-        return (
-          <TouchableIconComponent
-            icon={item.icon}
-            key={item}
-            onPress={() => {
-              console.log('oiii');
-            }}
-          />
-        );
-      })}
+      <div>
+        {items.map(item => {
+          return (
+            <TouchableIconComponent
+              icon={item.icon}
+              key={item}
+              onPress={() => {
+                window.open(item.url);
+              }}
+            />
+          );
+        })}
+      </div>
     </Container>
   );
 }
