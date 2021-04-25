@@ -1,11 +1,27 @@
-import { ButtonBase } from '@material-ui/core';
+import { ButtonBase, SvgIcon } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { colors } from '../../utils/colors';
 
+const width = 128;
+const iconSize = 24;
+
 const styles = {
-  button: {
+  base: {
     color: colors.darkGray,
-    fontSize: '2vh',
+    fontSize: '1.2vw',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: 'purple',
+    borderRadius: 8,
+    color: colors.white,
+    height: width / 4,
+    width: width,
+  },
+  icon: {
+    height: iconSize,
+    marginLeft: 8,
+    width: iconSize,
   },
   selectedTab: {
     fontWeight: 'bold',
@@ -17,23 +33,29 @@ const styles = {
 };
 
 const propTypes = {
+  icon: PropTypes.element,
   isEnabled: PropTypes.bool,
   isSelected: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
+  style: PropTypes.object,
   tab: PropTypes.bool,
   text: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
+  icon: null,
   isEnabled: true,
   isSelected: false,
+  style: {},
   tab: false,
 };
 
 export default function ButtonComponent({
+  icon,
   isEnabled,
   isSelected,
   onClick,
+  style,
   tab,
   text,
 }) {
@@ -42,13 +64,15 @@ export default function ButtonComponent({
       disabled={!isEnabled}
       onClick={onClick}
       style={{
-        ...styles.button,
-        ...(tab ? styles.tab : {}),
+        ...styles.base,
+        ...(tab ? styles.tab : styles.button),
+        ...style,
         ...(tab && isSelected ? styles.selectedTab : {}),
       }}
       variant="contained"
     >
       {text}
+      {icon ? <SvgIcon style={styles.icon}>{icon}</SvgIcon> : null}
     </ButtonBase>
   );
 }
