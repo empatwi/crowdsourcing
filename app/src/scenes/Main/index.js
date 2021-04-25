@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Container } from '@material-ui/core';
+import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import ButtonComponent from '../../components/Button';
 import DividerComponent from '../../components/Divider';
 import { getTweet } from '../../helper/api';
@@ -15,11 +17,14 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
   },
+  buttonNeg: {
+    backgroundColor: colors.buttonRed,
+  },
+  buttonPos: {
+    backgroundColor: colors.buttonGreen,
+  },
   divider: {
     height: '100px',
-  },
-  padding: {
-    padding: 50,
   },
   subTopText: {
     fontSize: 16,
@@ -28,13 +33,19 @@ const styles = {
   topText: {
     fontSize: 40,
     fontWeight: 'bold',
-    marginBottom: 0,
-    marginTop: 0,
+    margin: 0,
   },
   tweet: {
     color: colors.gray,
     fontSize: 16,
+    margin: 0,
     textAlign: 'center',
+  },
+  tweetButtonsContainer: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '45%',
   },
   tweetContainer: {
     alignItems: 'stretch',
@@ -45,14 +56,16 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '60%',
-    width: '70%',
+    width: '50%',
   },
   tweetContainerBottom: {
     alignItems: 'center',
     display: 'flex',
     flex: 1,
-    justifyContent: 'center',
-    padding: 8,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    paddingLeft: 16,
+    paddingRight: 16,
   },
   tweetContainerTop: {
     alignItems: 'center',
@@ -86,7 +99,19 @@ export default function Main() {
   const renderTweetBottom = useMemo(() => {
     return (
       <div style={styles.tweetContainerBottom}>
-        <p style={styles.tweet}>{tweet ? tweet : 'Mensagem nulo'}</p>
+        <p style={styles.tweet}>{tweet ? tweet : main.nullTweetText}</p>
+        <div style={styles.tweetButtonsContainer}>
+          <ButtonComponent
+            icon={<SentimentSatisfiedAltIcon />}
+            style={styles.buttonPos}
+            text={main.positive}
+          />
+          <ButtonComponent
+            icon={<SentimentVeryDissatisfiedIcon />}
+            style={styles.buttonNeg}
+            text={main.negative}
+          />
+        </div>
       </div>
     );
   }, [tweet]);
