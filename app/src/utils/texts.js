@@ -10,6 +10,10 @@ export const header = {
 };
 
 export const main = {
+  negative: 'Negativo',
+  nullTweetText:
+    'Opa! Parece que não temos conteúdo para te mostrar neste momento.',
+  positive: 'Positivo',
   subTopText: 'O nosso sucesso depende da sua ajuda!',
   topText: 'Contribua com o empatwi',
   tweetTopText: 'Qual é o sentimento deste comentário?',
