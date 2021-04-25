@@ -47,7 +47,7 @@ export default function FooterComponent({ items, text }) {
           return (
             <TouchableIconComponent
               icon={item.icon}
-              key={item}
+              key={item.url}
               onPress={() => {
                 window.open(item.url);
               }}

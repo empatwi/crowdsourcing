@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { colors } from '../utils/colors';
