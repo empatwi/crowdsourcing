@@ -1,8 +1,8 @@
-import { SvgIcon, ButtonBase } from '@material-ui/core';
+import { ButtonBase, SvgIcon } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { colors } from '../../utils/colors';
 
-const size = 24;
+const size = 32;
 
 const styles = {
   button: {
