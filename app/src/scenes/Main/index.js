@@ -28,6 +28,7 @@ const styles = {
   },
   subTopText: {
     fontSize: 16,
+    marginBottom: 0,
     marginTop: 0,
   },
   topText: {
@@ -81,6 +82,7 @@ const styles = {
 };
 
 export default function Main() {
+  const delayInSeconds = 1;
   const [tweet, setTweet] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
 
@@ -91,12 +93,9 @@ export default function Main() {
 
   useEffect(() => {
     setIsEnabled(false);
-  }, [tweet, setIsEnabled]);
-
-  useEffect(() => {
     setTimeout(() => {
       setIsEnabled(true);
-    }, 1000);
+    }, delayInSeconds * 1000);
   }, [tweet, setIsEnabled]);
 
   const renderTweetTop = useMemo(() => {
@@ -105,7 +104,7 @@ export default function Main() {
         <p style={styles.tweetTextTop}>{main.tweetTopText}</p>
       </div>
     );
-  }, [main.tweetTopText]);
+  }, []);
 
   const renderTweetBottom = useMemo(() => {
     return (
