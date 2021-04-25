@@ -1,10 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Container } from '@material-ui/core';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import ButtonComponent from '../../components/Button';
 import DividerComponent from '../../components/Divider';
-import { getTweet } from '../../helper/api';
+import { getTweet, updateTweet } from '../../helper/api';
 import { parseTweet } from '../../utils';
 import { colors } from '../../utils/colors';
 import { main } from '../../utils/texts';
@@ -91,6 +91,13 @@ export default function Main() {
     setTweet(parseTweet(returnedTweet));
   };
 
+  const onClassification = useCallback(
+    value => {
+      updateTweet(value, String(tweet?.id));
+    },
+    [tweet?.id],
+  );
+
   useEffect(() => {
     setIsEnabled(false);
     setTimeout(() => {
@@ -109,13 +116,13 @@ export default function Main() {
   const renderTweetBottom = useMemo(() => {
     return (
       <div style={styles.tweetContainerBottom}>
-        <p style={styles.tweet}>{tweet ? tweet : main.nullTweetText}</p>
+        <p style={styles.tweet}>{tweet?.tweet_content ?? main.nullTweetText}</p>
         <div style={styles.tweetButtonsContainer}>
           <ButtonComponent
             icon={<SentimentSatisfiedAltIcon />}
             isEnabled={isEnabled}
             onClick={() => {
-              console.log('pos');
+              onClassification(true);
             }}
             style={styles.buttonPos}
             text={main.positive}
@@ -124,7 +131,7 @@ export default function Main() {
             icon={<SentimentVeryDissatisfiedIcon />}
             isEnabled={isEnabled}
             onClick={() => {
-              console.log('neg');
+              onClassification(false);
             }}
             style={styles.buttonNeg}
             text={main.negative}
@@ -132,7 +139,7 @@ export default function Main() {
         </div>
       </div>
     );
-  }, [isEnabled, tweet]);
+  }, [isEnabled, onClassification, tweet]);
 
   return (
     <>
