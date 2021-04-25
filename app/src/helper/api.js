@@ -1,7 +1,7 @@
+/* eslint-disable no-undef */
 import axios from 'axios';
 
 export const getTweet = async () => {
-  // eslint-disable-next-line no-undef
   const urlString = `${process.env.REACT_APP_API_URL}/tweet/`;
   return await axios({ method: 'GET', url: urlString })
     .then(res => {
@@ -9,7 +9,25 @@ export const getTweet = async () => {
       return null;
     })
     .catch(err => {
-      console.error(err);
+      console.log('\n==> Error log in getTweet:\n', err);
       return null;
+    });
+};
+
+export const updateTweet = async (booleanValue, id) => {
+  const urlString = `${process.env.REACT_APP_API_URL}/tweet/${id}/`;
+  const res = await axios({
+    data: {
+      classification: booleanValue,
+      created_at: new Date().toISOString(),
+    },
+    method: 'POST',
+    url: urlString,
+  })
+    .then(res => {
+      console.log('updateTweet res', res);
+    })
+    .catch(err => {
+      console.log('\n==> Error log in updateTweet:\n', err);
     });
 };
