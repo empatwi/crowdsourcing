@@ -3,6 +3,7 @@ import { Container } from '@material-ui/core';
 import ButtonComponent from '../../components/Button';
 import DividerComponent from '../../components/Divider';
 import { getTweet } from '../../helper/api';
+import { parseTweet } from '../../utils';
 import { colors } from '../../utils/colors';
 import { main } from '../../utils/texts';
 
@@ -60,15 +61,10 @@ const styles = {
 
 export default function Main() {
   const [tweet, setTweet] = useState(null);
-  console.log(tweet);
 
   const onClick = async () => {
     const returnedTweet = await getTweet();
-    setTweet(
-      returnedTweet?.tweet_content && returnedTweet?.tweet_content?.length > 0
-        ? returnedTweet?.tweet_content
-        : null,
-    );
+    setTweet(parseTweet(returnedTweet));
   };
 
   const renderTweetBottom = useMemo(() => {
