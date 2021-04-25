@@ -12,11 +12,13 @@ const styles = {
   },
   button: {
     alignItems: 'center',
-    backgroundColor: 'purple',
     borderRadius: 8,
     color: colors.white,
     height: width / 4,
     width: width,
+  },
+  buttonDisabled: {
+    opacity: 0.5,
   },
   icon: {
     height: iconSize,
@@ -66,8 +68,9 @@ export default function ButtonComponent({
       style={{
         ...styles.base,
         ...(tab ? styles.tab : styles.button),
-        ...style,
+        ...(!tab && !isEnabled ? styles.buttonDisabled : {}),
         ...(tab && isSelected ? styles.selectedTab : {}),
+        ...style,
       }}
       variant="contained"
     >

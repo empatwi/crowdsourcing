@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Container } from '@material-ui/core';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
@@ -82,11 +82,22 @@ const styles = {
 
 export default function Main() {
   const [tweet, setTweet] = useState(null);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   const onClick = async () => {
     const returnedTweet = await getTweet();
     setTweet(parseTweet(returnedTweet));
   };
+
+  useEffect(() => {
+    setIsEnabled(false);
+  }, [tweet, setIsEnabled]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsEnabled(true);
+    }, 1000);
+  }, [tweet, setIsEnabled]);
 
   const renderTweetTop = useMemo(() => {
     return (
@@ -94,7 +105,7 @@ export default function Main() {
         <p style={styles.tweetTextTop}>{main.tweetTopText}</p>
       </div>
     );
-  }, []);
+  }, [main.tweetTopText]);
 
   const renderTweetBottom = useMemo(() => {
     return (
@@ -103,18 +114,26 @@ export default function Main() {
         <div style={styles.tweetButtonsContainer}>
           <ButtonComponent
             icon={<SentimentSatisfiedAltIcon />}
+            isEnabled={isEnabled}
+            onClick={() => {
+              console.log('pos');
+            }}
             style={styles.buttonPos}
             text={main.positive}
           />
           <ButtonComponent
             icon={<SentimentVeryDissatisfiedIcon />}
+            isEnabled={isEnabled}
+            onClick={() => {
+              console.log('neg');
+            }}
             style={styles.buttonNeg}
             text={main.negative}
           />
         </div>
       </div>
     );
-  }, [tweet]);
+  }, [isEnabled, tweet]);
 
   return (
     <>
