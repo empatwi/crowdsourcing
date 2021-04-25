@@ -1,3 +1,5 @@
+import ButtonComponent from '../../components/Button';
+import { getTweet } from '../../helper/api';
 import { main } from '../../utils/texts';
 
 const styles = {
@@ -14,10 +16,16 @@ const styles = {
 };
 
 export default function Main() {
+  const onClick = async () => {
+    const res = await getTweet();
+    console.log('getTweet res', res);
+  };
+
   return (
     <>
       <p style={styles.topText}>{main.topText}</p>
       <p style={styles.subTopText}>{main.subTopText}</p>
+      <ButtonComponent onClick={onClick} text="API test :D" />
     </>
   );
 }
