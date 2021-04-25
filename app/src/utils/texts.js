@@ -12,6 +12,7 @@ export const header = {
 export const main = {
   subTopText: 'O nosso sucesso depende da sua ajuda!',
   topText: 'Contribua com o empatwi',
+  tweetTopText: 'Qual é o sentimento deste comentário?',
 };
 
 export const footer = {

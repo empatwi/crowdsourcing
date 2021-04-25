@@ -55,7 +55,15 @@ const styles = {
     padding: 8,
   },
   tweetContainerTop: {
+    alignItems: 'center',
+    display: 'flex',
     height: '20%',
+    justifyContent: 'center',
+  },
+  tweetTextTop: {
+    color: colors.buttonGreen,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 };
 
@@ -66,6 +74,14 @@ export default function Main() {
     const returnedTweet = await getTweet();
     setTweet(parseTweet(returnedTweet));
   };
+
+  const renderTweetTop = useMemo(() => {
+    return (
+      <div style={styles.tweetContainerTop}>
+        <p style={styles.tweetTextTop}>{main.tweetTopText}</p>
+      </div>
+    );
+  }, []);
 
   const renderTweetBottom = useMemo(() => {
     return (
@@ -86,7 +102,7 @@ export default function Main() {
           maxWidth={false}
           style={styles.tweetContainer}
         >
-          <div style={styles.tweetContainerTop}>top</div>
+          {renderTweetTop}
           <DividerComponent />
           {renderTweetBottom}
         </Container>
