@@ -86,7 +86,7 @@ export default function Main() {
   const [tweet, setTweet] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
 
-  const onClick = async () => {
+  const fetchTweet = async () => {
     const returnedTweet = await getTweet();
     setTweet(parseTweet(returnedTweet));
   };
@@ -94,9 +94,14 @@ export default function Main() {
   const onClassification = useCallback(
     value => {
       updateTweet(value, String(tweet?.id));
+      fetchTweet();
     },
     [tweet?.id],
   );
+
+  useEffect(() => {
+    fetchTweet();
+  }, []);
 
   useEffect(() => {
     setIsEnabled(false);
