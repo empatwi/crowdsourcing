@@ -151,7 +151,6 @@ export default function Main() {
       <p style={styles.topText}>{main.topText}</p>
       <p style={styles.subTopText}>{main.subTopText}</p>
       <Container disableGutters maxWidth={false} style={styles.bottomContainer}>
-        <ButtonComponent onClick={onClick} text="API test :D" />
         <Container
           disableGutters
           maxWidth={false}
