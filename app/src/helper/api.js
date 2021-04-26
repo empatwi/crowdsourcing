@@ -16,13 +16,10 @@ export const getTweet = async () => {
 
 export const updateTweet = async (booleanValue, id) => {
   const urlString = `${process.env.REACT_APP_API_URL}/tweet/${id}/`;
-  const res = await axios({
+  await axios({
     data: {
       classification: booleanValue,
       created_at: new Date().toISOString(),
-    },
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
     },
     method: 'PUT',
     url: urlString,
