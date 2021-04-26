@@ -21,7 +21,10 @@ export const updateTweet = async (booleanValue, id) => {
       classification: booleanValue,
       created_at: new Date().toISOString(),
     },
-    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    method: 'PUT',
     url: urlString,
   })
     .then(res => {
