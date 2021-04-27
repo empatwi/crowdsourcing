@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import ButtonComponent from '../../components/Button';
@@ -13,8 +13,8 @@ const styles = {
   bottomContainer: {
     alignItems: 'center',
     display: 'flex',
-    flex: 1,
     flexDirection: 'column',
+    height: '100%',
     justifyContent: 'center',
   },
   buttonNeg: {
@@ -23,13 +23,22 @@ const styles = {
   buttonPos: {
     backgroundColor: colors.buttonGreen,
   },
-  divider: {
-    height: '100px',
+  container: {
+    flex: 1,
+  },
+  reportButton: {
+    fontSize: 8,
+    textDecoration: 'underline',
   },
   subTopText: {
     fontSize: 16,
     marginBottom: 0,
     marginTop: 0,
+  },
+  topContainer: {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
   },
   topText: {
     fontSize: 40,
@@ -57,7 +66,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '60%',
-    width: '50%',
   },
   tweetContainerBottom: {
     alignItems: 'center',
@@ -83,6 +91,7 @@ const styles = {
 
 export default function Main() {
   const delayInSeconds = 1;
+
   const [tweet, setTweet] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
 
@@ -99,9 +108,9 @@ export default function Main() {
     [tweet?.id],
   );
 
-  useEffect(() => {
-    fetchTweet();
-  }, []);
+  // useEffect(() => {
+  //   fetchTweet();
+  // }, []);
 
   useEffect(() => {
     setIsEnabled(false);
@@ -147,10 +156,21 @@ export default function Main() {
   }, [isEnabled, onClassification, tweet]);
 
   return (
-    <>
-      <p style={styles.topText}>{main.topText}</p>
-      <p style={styles.subTopText}>{main.subTopText}</p>
-      <Container disableGutters maxWidth={false} style={styles.bottomContainer}>
+    // xs, sm, md, lg, and xl
+    <Grid
+      alignContent="flex-start"
+      container
+      justify="center"
+      // spacing={1}
+      style={styles.container}
+    >
+      <Grid item xs={12}>
+        <Container disableGutters maxWidth={false} style={styles.topContainer}>
+          <p style={styles.topText}>{main.topText}</p>
+          <p style={styles.subTopText}>{main.subTopText}</p>
+        </Container>
+      </Grid>
+      <Grid item md={6} sm={8} style={styles.bottomContainer} xs={10}>
         <Container
           disableGutters
           maxWidth={false}
@@ -160,7 +180,7 @@ export default function Main() {
           <DividerComponent />
           {renderTweetBottom}
         </Container>
-      </Container>
-    </>
+      </Grid>
+    </Grid>
   );
 }
