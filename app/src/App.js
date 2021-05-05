@@ -1,12 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './pages';
+import { root } from './constants';
 import { navBar } from './utils';
 
 function App() {
-  const root = '/';
-
   return (
     <Router>
       <Navbar />

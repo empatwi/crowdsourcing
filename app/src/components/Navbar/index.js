@@ -1,3 +1,4 @@
+import { root } from '../../constants';
 import { navBar } from '../../utils';
 import {
   Nav,
@@ -9,8 +10,6 @@ import {
 } from './NavbarElements';
 
 const Navbar = () => {
-  const root = '/';
-
   return (
     <Nav>
       <NavLink to="/">
