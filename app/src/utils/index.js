@@ -1,13 +1,15 @@
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import Home from '../pages';
 
-export const header = {
-  tabs: [
-    { id: 0, value: 'Início' },
-    { id: 1, value: 'Sobre' },
-    { id: 2, value: 'Contato' },
-  ],
-};
+const About = () => <h1>About</h1>;
+const Contact = () => <h1>Contact</h1>;
+
+export const navBar = [
+  { component: Home, path: '/', title: 'Início' },
+  { component: About, path: '/about', title: 'Sobre' },
+  { component: Contact, path: '/contact', title: 'Contato' },
+];
 
 export const main = {
   negative: 'Negativo',
