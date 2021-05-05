@@ -1,3 +1,4 @@
+import { navBar } from '../../utils';
 import {
   Nav,
   NavLink,
@@ -8,6 +9,8 @@ import {
 } from './NavbarElements';
 
 const Navbar = () => {
+  const root = '/';
+
   return (
     <Nav>
       <NavLink to="/">
@@ -19,21 +22,15 @@ const Navbar = () => {
       </NavLink>
       <Bars />
       <NavMenu>
-        <NavLink activeStyle to="/about">
-          About
-        </NavLink>
-        <NavLink activeStyle to="/services">
-          Services
-        </NavLink>
-        <NavLink activeStyle to="/contact-us">
-          Contact Us
-        </NavLink>
-        {/* Second Nav */}
-        {/* <NavBtnLink to="/sign-in">Sign In</NavBtnLink> */}
+        {navBar.map(item => {
+          if (item?.path !== root)
+            return (
+              <NavLink activeStyle key={item?.path} to={item?.path}>
+                {item?.title}
+              </NavLink>
+            );
+        })}
       </NavMenu>
-      {/* <NavBtn>
-        <NavBtnLink to="/signin">Sign In</NavBtnLink>
-      </NavBtn> */}
     </Nav>
   );
 };
