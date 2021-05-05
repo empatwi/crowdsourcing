@@ -11,25 +11,14 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        {navBar.map(item => {
-          if (item?.path !== root)
-            return (
-              <Route
-                component={item?.component}
-                key={item?.path}
-                path={item?.path}
-              />
-            );
-          else
-            return (
-              <Route
-                component={item?.component}
-                exact
-                key={item?.path}
-                path={item?.path}
-              />
-            );
-        })}
+        {navBar.map(item => (
+          <Route
+            component={item?.component}
+            exact={item?.path === root}
+            key={item?.path}
+            path={item?.path}
+          />
+        ))}
       </Switch>
     </Router>
   );
