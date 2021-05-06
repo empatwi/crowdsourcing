@@ -5,9 +5,8 @@ import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissa
 import ButtonComponent from '../../components/Button';
 import DividerComponent from '../../components/Divider';
 import { getTweet, updateTweet } from '../../helper/api';
-import { parseTweet } from '../../utils';
-import { colors } from '../../utils/colors';
-import { main } from '../../utils/texts';
+import { parseTweet, main } from '../../utils';
+import { colors } from '../../utils/theme';
 
 const styles = {
   bottomContainer: {
