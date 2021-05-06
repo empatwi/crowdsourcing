@@ -2,13 +2,12 @@ import { useState } from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Home from '../pages';
-import Body from '../scenes';
 
 const About = () => <h1>About</h1>;
 const Contact = () => <h1>Contact</h1>;
 
 export const navBar = [
-  { component: Body, path: '/', title: 'Início' },
+  { component: Home, path: '/', title: 'Início' },
   { component: About, path: '/about', title: 'Sobre' },
   { component: Contact, path: '/contact', title: 'Contato' },
 ];
