@@ -1,8 +1,7 @@
+import { navBarHeight } from '../constants';
+
 export const theme = {
-  padding: {
-    paddingLeft: 32,
-    paddingRight: 32,
-  },
+  marginTop: navBarHeight,
 };
 
 export const colors = {

@@ -20,6 +20,24 @@ export const NavLink = styled(Link)`
   color: ${colors.darkGray};
   cursor: pointer;
   display: flex;
+  height: 100%;
+  padding: 0 1rem;
+  text-decoration: none;
+  &.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
+`;
+
+export const NavLinkBurger = styled(Link)`
+  align-items: center;
+  color: ${colors.darkGray};
+  cursor: pointer;
+  display: flex;
   font-size: 0.9rem;
   height: 100%;
   padding: 1rem 2rem;
@@ -55,6 +73,18 @@ export const NavMenu = styled.div`
   margin-right: 24px;
   @media screen and (max-width: 768px) {
     display: none;
+  }
+`;
+
+export const Logo = styled(Link)`
+  color: #7b7fda;
+  font-size: 1.7rem;
+  font-weight: 800;
+  padding: 1rem 0;
+  text-decoration: none;
+  span {
+    font-weight: 300;
+    font-size: 1.3rem;
   }
 `;
 

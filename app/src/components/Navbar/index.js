@@ -1,200 +1,35 @@
-// import React from 'react';
-// import {
-//   AppBar,
-//   Button,
-//   IconButton,
-//   Menu,
-//   MenuItem,
-//   Toolbar,
-//   Typography,
-//   useMediaQuery,
-// } from '@material-ui/core';
-// import { makeStyles, useTheme } from '@material-ui/core/styles';
-// import MenuIcon from '@material-ui/icons/Menu';
-// import PropTypes from 'prop-types';
-// import { root } from '../../constants';
-// import { navBar } from '../../utils';
-
-// const useStyles = makeStyles(theme => ({
-//   headerOptions: {
-//     display: 'flex',
-//     flex: 1,
-//     justifyContent: 'space-evenly',
-//   },
-//   menuButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   root: {
-//     flexGrow: 1,
-//   },
-//   title: {
-//     [theme.breakpoints.down('xs')]: {
-//       flexGrow: 1,
-//     },
-//   },
-// }));
-
-// const Navbar = props => {
-//   const { history } = props;
-//   const classes = useStyles();
-
-//   const [anchorEl, setAnchorEl] = React.useState(null);
-//   const open = Boolean(anchorEl);
-//   const theme = useTheme();
-//   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-//   // const isMobile = true;
-
-//   const handleMenu = event => {
-//     setAnchorEl(event.currentTarget);
-//   };
-
-//   const handleMenuClick = pageURL => {
-//     // history.push(pageURL);
-//     setAnchorEl(null);
-//   };
-
-//   const handleButtonClick = pageURL => {
-//     // history.push(pageURL);
-//   };
-
-//   const menuItems = [
-//     {
-//       menuTitle: 'Home',
-//       pageURL: '/',
-//     },
-//     {
-//       menuTitle: 'Contact',
-//       pageURL: '/contact',
-//     },
-//     {
-//       menuTitle: 'About',
-//       pageURL: '/about',
-//     },
-//   ];
-
-//   return (
-//     <div className={classes.root}>
-//       <AppBar position="static">
-//         <Toolbar>
-//           {/* <Nav> */}
-//           <NavLink to="/">
-//             <img
-//               alt="logo"
-//               src="http://localhost:3000/logo512.png"
-//               style={{ height: 60, width: 60 }}
-//             />
-//           </NavLink>
-//           {isMobile ? (
-//             <>
-//               <IconButton
-//                 aria-label="menu"
-//                 className={classes.menuButton}
-//                 color="inherit"
-//                 edge="start"
-//                 onClick={handleMenu}
-//               >
-//                 <MenuIcon />
-//               </IconButton>
-//               <Menu
-//                 anchorEl={anchorEl}
-//                 anchorOrigin={{
-//                   horizontal: 'right',
-//                   vertical: 'top',
-//                 }}
-//                 id="menu-appbar"
-//                 keepMounted
-//                 onClose={() => setAnchorEl(null)}
-//                 open={open}
-//                 transformOrigin={{
-//                   horizontal: 'right',
-//                   vertical: 'top',
-//                 }}
-//               >
-//                 {menuItems.map(menuItem => {
-//                   const { menuTitle, pageURL } = menuItem;
-//                   return (
-//                     <MenuItem
-//                       key={menuItem?.menuTitle}
-//                       onClick={() => handleMenuClick(pageURL)}
-//                     >
-//                       {menuTitle}
-//                     </MenuItem>
-//                   );
-//                 })}
-//               </Menu>
-//             </>
-//           ) : (
-//             <>
-//               <Bars />
-//               <NavMenu>
-//                 {navBar.map(item => {
-//                   if (item?.path !== root)
-//                     return (
-//                       <NavLink activeStyle key={item?.path} to={item?.path}>
-//                         {item?.title}
-//                       </NavLink>
-//                     );
-//                 })}
-//               </NavMenu>
-//             </>
-//           )}
-//           {/* </Nav> */}
-//         </Toolbar>
-//       </AppBar>
-//     </div>
-//     // <Nav>
-//     //   <NavLink to="/">
-//     //     <img
-//     //       alt="logo"
-//     //       src="http://localhost:3000/logo512.png"
-//     //       style={{ height: 60, width: 60 }}
-//     //     />
-//     //   </NavLink>
-//     //   <Bars />
-//     //   <NavMenu>
-//     //     {navBar.map(item => {
-//     //       if (item?.path !== root)
-//     //         return (
-//     //           <NavLink activeStyle key={item?.path} to={item?.path}>
-//     //             {item?.title}
-//     //           </NavLink>
-//     //         );
-//     //     })}
-//     //   </NavMenu>
-//     // </Nav>
-//   );
-// };
-
-// Navbar.propTypes = {
-//   history: PropTypes.any.isRequired,
-// };
-
-// export default Navbar;
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { root, navBarHeight } from '../../constants';
 import { navBar } from '../../utils';
 import { colors } from '../../utils/theme';
-import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './elements';
+import { Nav, NavLink, NavLinkBurger } from './elements';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const HamburgerLogo = () => (
+    <Hamburger onClick={() => setIsOpen(!isOpen)}>
+      <span />
+      <span />
+      <span />
+    </Hamburger>
+  );
+
   return (
     <Nav>
-      <Logo href="">
+      <Logo>
         Eli<span>Codes</span>
       </Logo>
-      <Hamburger onClick={() => setIsOpen(!isOpen)}>
-        <span />
-        <span />
-        <span />
-      </Hamburger>
+      <HamburgerLogo />
       <Menu isOpen={isOpen}>
         {navBar.map(item => {
           if (item?.path !== root)
-            return (
+            return isOpen ? (
+              <NavLinkBurger activeStyle key={item?.path} to={item?.path}>
+                {item?.title}
+              </NavLinkBurger>
+            ) : (
               <NavLink activeStyle key={item?.path} to={item?.path}>
                 {item?.title}
               </NavLink>
@@ -208,12 +43,11 @@ const NavBar = () => {
 export default NavBar;
 
 const Logo = styled.a`
-  padding: 1rem 0;
   color: #7b7fda;
-  text-decoration: none;
-  font-weight: 800;
   font-size: 1.7rem;
-
+  font-weight: 800;
+  padding: 1rem 0;
+  text-decoration: none;
   span {
     font-weight: 300;
     font-size: 1.3rem;

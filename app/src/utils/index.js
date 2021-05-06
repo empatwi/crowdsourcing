@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import Home from '../pages';
-
-const About = () => <h1>About</h1>;
-const Contact = () => <h1>Contact</h1>;
+import About from '../pages/about';
+import Contact from '../pages/contact';
+import Home from '../pages/home';
 
 export const navBar = [
   { component: Home, path: '/', title: 'Início' },

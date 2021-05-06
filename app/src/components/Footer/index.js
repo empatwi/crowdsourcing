@@ -1,7 +1,6 @@
 import { Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { colors } from '../../utils/colors';
-import { theme } from '../../utils/theme';
+import { colors, theme } from '../../utils/theme';
 import TouchableIconComponent from '../TouchableIcon';
 
 const styles = {
