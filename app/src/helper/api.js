@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
+const baseURL = `${process.env.REACT_APP_API_URL_DEV}/tweet/`;
 
 export const getTweet = async () => {
-  const urlString = `${process.env.REACT_APP_API_URL}/tweet/`;
-  return await axios({ method: 'GET', url: urlString })
+  return await axios({ method: 'GET', url: baseURL })
     .then(res => {
       if (res?.status === 200 && res?.data?.length === 1) return res?.data[0];
       return null;
@@ -15,17 +15,17 @@ export const getTweet = async () => {
 };
 
 export const updateTweet = async (booleanValue, id) => {
-  const urlString = `${process.env.REACT_APP_API_URL}/tweet/${id}/`;
+  const url = `${baseURL}${id}/`;
   await axios({
     data: {
       classification: booleanValue,
-      created_at: new Date().toISOString(),
+      created_at: new Date()?.toISOString(),
     },
     method: 'PUT',
-    url: urlString,
+    url: url,
   })
-    .then(res => {
-      console.log('updateTweet res', res);
+    .then(() => {
+      console.log('\n> Success log in updateTweet! :D');
     })
     .catch(err => {
       console.log('\n==> Error log in updateTweet:\n', err);
