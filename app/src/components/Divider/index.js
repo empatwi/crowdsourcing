@@ -1,6 +1,6 @@
 import { Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { colors } from '../../utils/colors';
+import { colors } from '../../utils/theme';
 
 const styles = {
   container: {
