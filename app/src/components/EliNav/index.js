@@ -4,15 +4,14 @@ import styled from 'styled-components';
 import { root } from '../../constants';
 import { navBar } from '../../utils';
 import { colors } from '../../utils/theme';
+import NavLogo from './logo';
 
 const EliNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Nav>
-      <Logo href="">
-        Eli<span>Codes</span>
-      </Logo>
+    <Nav isOpen={isOpen}>
+      <NavLogo size="100%" />
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
@@ -20,11 +19,13 @@ const EliNav = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
         {navBar.map(item => {
-          return item?.path !== root ? (
-            <MenuLink activeStyle key={item?.path} to={item?.path}>
-              {item?.title}
-            </MenuLink>
-          ) : null;
+          return (
+            item?.path !== root && (
+              <MenuLink activeStyle key={item?.path} to={item?.path}>
+                {item?.title}
+              </MenuLink>
+            )
+          );
         })}
       </Menu>
     </Nav>
@@ -36,7 +37,7 @@ export default EliNav;
 const MenuLink = styled(Link)`
   color: ${colors.darkGray};
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -56,23 +57,11 @@ const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  left: 0;
   padding: 0 2rem;
-  /* left: 0;
   position: absolute;
   right: 0;
-  top: 0; */
-`;
-
-const Logo = styled.a`
-  color: #7b7fda;
-  font-size: 1.7rem;
-  font-weight: 800;
-  padding: 1rem 0;
-  text-decoration: none;
-  span {
-    font-weight: 300;
-    font-size: 1.3rem;
-  }
+  top: 0;
 `;
 
 const Menu = styled.div`
