@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
+import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { root } from '../../constants';
 
 const propTypes = {
   size: PropTypes.string,
@@ -11,13 +13,13 @@ const defaultProps = {
 
 const NavLogo = ({ size }) => {
   return (
-    <div className="row">
-      <div className="logo">
-        <Logo size={size} />
-      </div>
-    </div>
+    <NavLogoContainer to={root}>
+      <Logo size={size} />
+    </NavLogoContainer>
   );
 };
+
+const NavLogoContainer = styled(Link)``;
 
 const Logo = styled.img.attrs({
   src: '/images/tempLogo.png',
