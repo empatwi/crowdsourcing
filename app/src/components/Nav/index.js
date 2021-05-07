@@ -7,11 +7,11 @@ import { colors } from '../../utils/theme';
 import NavHamburger from './hamburger';
 import NavLogo from './logo';
 
-const EliNav = () => {
+const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Nav isOpen={isOpen}>
+    <NavContainer isOpen={isOpen}>
       <NavLogo size="80%" />
       <NavHamburger onClick={() => setIsOpen(!isOpen)} />
       <Menu isOpen={isOpen}>
@@ -25,11 +25,11 @@ const EliNav = () => {
           );
         })}
       </Menu>
-    </Nav>
+    </NavContainer>
   );
 };
 
-export default EliNav;
+export default Nav;
 
 const MenuLink = styled(Link)`
   color: ${colors.darkGray};
@@ -48,7 +48,7 @@ const MenuLink = styled(Link)`
   }
 `;
 
-const Nav = styled.nav`
+const NavContainer = styled.nav`
   align-items: center;
   background: ${colors.white};
   display: flex;

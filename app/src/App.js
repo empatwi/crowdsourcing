@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import EliNav from './components/EliNav';
+import Nav from './components/Nav';
 import { root } from './constants';
 import { navBar } from './utils';
 import { colors } from './utils/theme';
@@ -19,7 +19,7 @@ function App() {
       }}
     >
       <Router>
-        <EliNav />
+        <Nav />
         <Switch>
           {navBar.map(item => (
             <Route
