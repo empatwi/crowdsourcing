@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { root } from '../../constants';
 import { navBar } from '../../utils';
 import { colors } from '../../utils/theme';
+import NavHamburger from './hamburger';
 import NavLogo from './logo';
 
 const EliNav = () => {
@@ -11,12 +12,8 @@ const EliNav = () => {
 
   return (
     <Nav isOpen={isOpen}>
-      <NavLogo size="100%" />
-      <Hamburger onClick={() => setIsOpen(!isOpen)}>
-        <span />
-        <span />
-        <span />
-      </Hamburger>
+      <NavLogo size="80%" />
+      <NavHamburger onClick={() => setIsOpen(!isOpen)} />
       <Menu isOpen={isOpen}>
         {navBar.map(item => {
           return (
@@ -75,21 +72,5 @@ const Menu = styled.div`
     overflow: hidden;
     transition: max-height 0.3s ease-in;
     width: 100%;
-  }
-`;
-
-const Hamburger = styled.div`
-  cursor: pointer;
-  display: none;
-  flex-direction: column;
-  span {
-    background: #7b7fda;
-    border-radius: 5px;
-    height: 2px;
-    margin-bottom: 4px;
-    width: 25px;
-  }
-  @media (max-width: 768px) {
-    display: flex;
   }
 `;
