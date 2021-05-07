@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const propTypes = {
-  size: PropTypes.string.isRequired,
+  size: PropTypes.string,
 };
 
 const defaultProps = {
