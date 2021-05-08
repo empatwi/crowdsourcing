@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import Footer from './components/Footer';
 import Nav from './components/Nav';
 import { root } from './constants';
-import { navBar } from './utils';
+import { navBar, footer } from './utils';
 import { colors } from './utils/theme';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           ))}
         </Switch>
       </Router>
+      <Footer items={footer?.links} text={footer?.text} />
     </AppContainer>
   );
 }

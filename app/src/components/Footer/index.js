@@ -1,23 +1,7 @@
-import { Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { colors, theme } from '../../utils/theme';
+import { colors } from '../../utils/theme';
 import TouchableIconComponent from '../TouchableIcon';
-
-const styles = {
-  container: {
-    alignItems: 'center',
-    backgroundColor: colors.darkGray,
-    color: colors.white,
-    display: 'flex',
-    flexDirection: 'row',
-    height: '10vh',
-    justifyContent: 'space-between',
-    width: '100vw',
-  },
-  leftText: {
-    fontSize: '2vw' + '2vmin',
-  },
-};
+import { FooterContainer } from './container';
 
 const propTypes = {
   items: PropTypes.arrayOf(
@@ -33,14 +17,19 @@ const defaultProps = {
   text: '',
 };
 
-export default function FooterComponent({ items, text }) {
+const styles = {
+  icon: {
+    color: colors.white,
+    height: '2rem',
+    marginLeft: '1rem',
+    width: '2rem',
+  },
+};
+
+export default function Footer({ items, text }) {
   return (
-    <Container
-      disableGutters
-      maxWidth={false}
-      style={{ ...theme.padding, ...styles.container }}
-    >
-      <p style={styles.leftText}>{text}</p>
+    <FooterContainer>
+      <p>{text}</p>
       <div>
         {items.map(item => {
           return (
@@ -50,13 +39,14 @@ export default function FooterComponent({ items, text }) {
               onPress={() => {
                 window.open(item.url);
               }}
+              style={styles.icon}
             />
           );
         })}
       </div>
-    </Container>
+    </FooterContainer>
   );
 }
 
-FooterComponent.propTypes = propTypes;
-FooterComponent.defaultProps = defaultProps;
+Footer.propTypes = propTypes;
+Footer.defaultProps = defaultProps;
