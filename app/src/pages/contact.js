@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ContactCard from '../components/ContactCard';
 import { contacts } from '../utils';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
@@ -19,7 +19,7 @@ const defaultProps = {
   offset: '90px',
 };
 
-const Contact = ({ offset }) => {
+const Contact = () => {
   const classes = useStyles();
 
   return (

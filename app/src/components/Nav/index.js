@@ -18,7 +18,7 @@ const Nav = () => {
         {navBar.map(item => {
           return (
             item?.path !== root && (
-              <MenuLink activeStyle key={item?.path} to={item?.path}>
+              <MenuLink key={item?.path} to={item?.path}>
                 {item?.title}
               </MenuLink>
             )

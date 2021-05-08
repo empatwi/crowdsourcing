@@ -1,20 +1,7 @@
-import PropTypes from 'prop-types';
-
-const propTypes = {
-  size: PropTypes.number.isRequired,
-};
-
-function LogoFull({ size }) {
-  const height = 380;
-  const heightConverted = height * size;
-  const width = 896;
-  const widthConverted = width * size;
-
+function LogoFull() {
   return (
     <svg
-      height={heightConverted}
       viewBox="0 0 896 380"
-      width={widthConverted}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
@@ -37,7 +24,5 @@ function LogoFull({ size }) {
     </svg>
   );
 }
-
-LogoFull.propTypes = propTypes;
 
 export default LogoFull;

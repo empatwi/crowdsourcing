@@ -6,10 +6,8 @@ const About = () => {
       style={{
         alignItems: 'center',
         display: 'flex',
-        justifyContent: 'center',
-        // marginTop: 100,
-        // backgroundColor: 'red',
         flex: 1,
+        justifyContent: 'center',
       }}
     >
       <h1>About</h1>
