@@ -17,7 +17,11 @@ const Nav = () => {
         {navBar.map(item => {
           return (
             item?.path !== root && (
-              <MenuLink key={item?.path} to={item?.path}>
+              <MenuLink
+                key={item?.path}
+                onClick={() => setIsOpen(!isOpen)}
+                to={item?.path}
+              >
                 {item?.title}
               </MenuLink>
             )
