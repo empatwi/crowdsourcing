@@ -6,7 +6,7 @@ const size = 32;
 
 const styles = {
   default: {
-    color: colors.white,
+    color: colors.darkGray,
     height: size,
     width: size,
   },
@@ -19,13 +19,15 @@ const propTypes = {
 };
 
 const defaultProps = {
-  style: {},
+  style: null,
 };
 
 export default function TouchableIconComponent({ icon, onPress, style }) {
   return (
     <ButtonBase onClick={onPress}>
-      <SvgIcon style={style ?? styles.default}>{icon}</SvgIcon>
+      <SvgIcon style={style ? { ...styles.default, ...style } : styles.default}>
+        {icon}
+      </SvgIcon>
     </ButtonBase>
   );
 }
