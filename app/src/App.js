@@ -1,25 +1,39 @@
 import './App.css';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import Nav from './components/Nav';
+import { root } from './constants';
+import { navBar } from './utils';
+import { colors } from './utils/theme';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Router>
+        <Nav />
+        <Switch>
+          {navBar.map(item => (
+            <Route
+              component={item?.component}
+              exact={item?.path === root}
+              key={item?.path}
+              path={item?.path}
+            />
+          ))}
+        </Switch>
+      </Router>
+    </AppContainer>
   );
 }
+
+const AppContainer = styled.div`
+  background-color: ${colors.green};
+  display: 'flex';
+  flex-direction: 'column';
+  flex: 1;
+  height: '100vh';
+  margin: 0;
+  width: '100vw';
+`;
 
 export default App;
