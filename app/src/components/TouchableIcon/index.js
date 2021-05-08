@@ -1,13 +1,10 @@
 import { ButtonBase, SvgIcon } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { colors } from '../../utils/colors';
+import { colors } from '../../utils/theme';
 
 const size = 32;
 
 const styles = {
-  button: {
-    marginLeft: 16,
-  },
   default: {
     color: colors.white,
     height: size,
@@ -18,14 +15,20 @@ const styles = {
 const propTypes = {
   icon: PropTypes.element.isRequired,
   onPress: PropTypes.func.isRequired,
+  style: PropTypes.object,
 };
 
-export default function TouchableIconComponent({ icon, onPress }) {
+const defaultProps = {
+  style: {},
+};
+
+export default function TouchableIconComponent({ icon, onPress, style }) {
   return (
-    <ButtonBase onClick={onPress} style={styles.button}>
-      <SvgIcon style={styles.default}>{icon}</SvgIcon>
+    <ButtonBase onClick={onPress}>
+      <SvgIcon style={style ?? styles.default}>{icon}</SvgIcon>
     </ButtonBase>
   );
 }
 
 TouchableIconComponent.propTypes = propTypes;
+TouchableIconComponent.defaultProps = defaultProps;
