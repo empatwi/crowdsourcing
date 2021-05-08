@@ -17,7 +17,7 @@ const propTypes = {
 
 const defaultProps = {};
 
-const style = {
+const styles = {
   icon: {
     fontSize: '2.0rem',
     hover: {
@@ -52,7 +52,7 @@ const ContactCard = ({ info }) => {
               onPress={() => {
                 window.open(link?.url);
               }}
-              style={style.icon}
+              style={styles.icon}
             />
           </Hover>
         ))}

@@ -39,7 +39,7 @@ const Contact = () => {
             key={i + Math.random().toString(36).substring(2, 15)}
             md={3}
             sm={4}
-            xs={10}
+            xs={8}
           >
             <ContactCard info={item} />
           </Grid>

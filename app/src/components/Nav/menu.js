@@ -1,5 +1,6 @@
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { fontSize } from '../../constants';
 import { colors } from '../../utils/theme';
 
 export const Menu = styled.div`
@@ -19,7 +20,7 @@ export const Menu = styled.div`
 export const MenuLink = styled(Link)`
   color: ${colors.darkGray};
   cursor: pointer;
-  font-size: 1rem;
+  font-size: ${fontSize};
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
