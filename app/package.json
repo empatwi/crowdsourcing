@@ -1,6 +1,10 @@
 {
   "name": "empatwi_crowdsourcing",
   "version": "0.1.0",
+  "description": "A crowdsourcing web application",
+  "author": "Letícia Vigna e Fabiana Masini",
+  "license": "MIT",
+  "homepage": "https://github.com/empatwi/crowdsourcing",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.1.5",
