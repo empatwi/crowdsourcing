@@ -17,7 +17,6 @@ const NavLogo = () => {
 };
 
 const NavLogoContainer = styled(Link)`
-  background: pink;
   max-width: 200px;
   min-width: 100px;
   width: 40vw;
