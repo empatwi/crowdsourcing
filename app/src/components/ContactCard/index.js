@@ -1,7 +1,7 @@
 import { Avatar } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { avatarSize } from '../../constants';
+import { avatarSize, avatarMinSize } from '../../constants';
 import { colors } from '../../utils/theme';
 import TouchableIconComponent from '../TouchableIcon';
 
@@ -36,6 +36,8 @@ const ContactCard = ({ info }) => {
         src={image}
         style={{
           height: avatarSize,
+          minHeight: avatarMinSize,
+          minWidth: avatarMinSize,
           width: avatarSize,
         }}
       />
@@ -64,15 +66,16 @@ ContactCard.defaultProps = defaultProps;
 export default ContactCard;
 
 const CardContainer = styled.div`
+  /* margin: 0 2rem; */
   align-items: center;
   background: ${colors.white};
   border-radius: 5%;
   display: flex;
   flex-direction: column;
-  height: 24rem;
   justify-content: center;
-  margin: 0 2rem;
-  padding: 0 2rem;
+  max-height: 24rem;
+  min-height: 16rem;
+  /* padding: 0 2rem; */
 `;
 
 const Name = styled.p`
@@ -81,6 +84,7 @@ const Name = styled.p`
   font-weight: bold;
   margin: 0;
   padding: 1rem 0 0 0;
+  text-align: center;
   &:hover {
     color: ${colors.green};
     transition: all 0.3s ease-in;
