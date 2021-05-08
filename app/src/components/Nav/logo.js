@@ -1,34 +1,26 @@
-import PropTypes from 'prop-types';
+// import { Grid } from '@material-ui/core';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { root } from '../../constants';
+import LogoFull from '../../svgs/LogoFull';
 
-const propTypes = {
-  size: PropTypes.string,
-};
-
-const defaultProps = {
-  size: '70%',
-};
-
-const NavLogo = ({ size }) => {
+const NavLogo = () => {
   return (
+    // <Grid container display="flex" flexDirection="column">
     <NavLogoContainer to={root}>
-      <Logo size={size} />
+      {/* <Grid item sm={12} xs={6}> */}
+      <LogoFull />
+      {/* </Grid> */}
     </NavLogoContainer>
+    // </Grid>
   );
 };
 
-const NavLogoContainer = styled(Link)``;
-
-const Logo = styled.img.attrs({
-  src: '/images/tempLogo.png',
-})`
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
+const NavLogoContainer = styled(Link)`
+  background: pink;
+  max-width: 200px;
+  min-width: 100px;
+  width: 40vw;
 `;
-
-NavLogo.propTypes = propTypes;
-NavLogo.defaultProps = defaultProps;
 
 export default NavLogo;
