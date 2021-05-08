@@ -25,20 +25,21 @@ const Contact = () => {
   return (
     <div className={classes.root}>
       <Grid
-        alignContent="center"
-        alignItems="center"
+        alignContent="space-evenly"
         container
         display="flex"
         justifyContent="center"
         minHeight="100vh"
-        spacing={1}
       >
         {contacts.map((item, i) => (
           <Grid
+            container
             item
+            justifyContent="center"
             key={i + Math.random().toString(36).substring(2, 15)}
+            md={3}
             sm={4}
-            xs={8}
+            xs={10}
           >
             <ContactCard info={item} />
           </Grid>
