@@ -92,7 +92,7 @@ const Description = styled(Name)`
 const LinksContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  width: 50%;
+  width: 60%;
 `;
 
 const Hover = styled.div`
