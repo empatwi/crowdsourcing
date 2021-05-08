@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { avatarSize, avatarMinSize } from '../../constants';
 import { colors } from '../../utils/theme';
 import TouchableIconComponent from '../TouchableIcon';
+import { CardContainer } from './container.js';
 
 const propTypes = {
   info: PropTypes.shape({
@@ -18,7 +19,7 @@ const defaultProps = {};
 
 const style = {
   icon: {
-    fontSize: '2.2rem',
+    fontSize: '2.0rem',
     hover: {
       color: colors.green,
       transition: 'all 0.3s ease-in',
@@ -65,19 +66,6 @@ ContactCard.defaultProps = defaultProps;
 
 export default ContactCard;
 
-const CardContainer = styled.div`
-  /* margin: 0 2rem; */
-  align-items: center;
-  background: ${colors.white};
-  border-radius: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-height: 24rem;
-  min-height: 16rem;
-  /* padding: 0 2rem; */
-`;
-
 const Name = styled.p`
   color: ${colors.darkGray};
   font-size: 1.4rem;
@@ -104,7 +92,7 @@ const Description = styled(Name)`
 const LinksContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  width: ${avatarSize};
+  width: 50%;
 `;
 
 const Hover = styled.div`
