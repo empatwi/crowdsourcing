@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+import styled from 'styled-components';
 import ButtonComponent from '../components/Button';
 import DividerComponent from '../components/Divider';
 import { fontSize } from '../constants';
@@ -14,8 +15,7 @@ const styles = {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    height: '30vh',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   buttonNeg: {
     backgroundColor: colors.buttonRed,
@@ -26,13 +26,19 @@ const styles = {
   container: {
     flex: 1,
   },
+  disclaimerText: {
+    color: colors.darkGray,
+    fontSize: '0.7rem',
+    textAlign: 'center',
+    textDecoration: 'bold',
+    width: '95%',
+  },
   reportButton: {
     fontSize: 8,
     textDecoration: 'underline',
   },
   subTopText: {
     fontSize: fontSize,
-    marginBottom: 0,
     marginTop: 0,
     textAlign: 'center',
   },
@@ -40,7 +46,6 @@ const styles = {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: '3rem',
   },
   topText: {
     fontSize: '2.5rem',
@@ -59,18 +64,17 @@ const styles = {
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'space-evenly',
+    padding: '1rem 0 0.4rem 0',
     width: '90%',
   },
   tweetContainer: {
-    alignItems: 'stretch',
     backgroundColor: colors.white,
     border: '4px solid',
     borderColor: colors.darkGray,
     borderRadius: 16,
     display: 'flex',
+    flex: 1,
     flexDirection: 'column',
-    height: '100%',
-    padding: '4px 0',
   },
   tweetContainerBottom: {
     alignItems: 'center',
@@ -78,13 +82,15 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    padding: '2px 4px',
+    padding: '0.5rem 0.4rem',
   },
   tweetContainerTop: {
     alignItems: 'center',
     display: 'flex',
-    height: '30%',
+    height: '25%',
     justifyContent: 'center',
+    padding: '1rem 0.4rem',
+    textAlign: 'center',
   },
   tweetTextTop: {
     color: colors.buttonGreen,
@@ -161,8 +167,8 @@ export default function Main() {
   }, [isEnabled, onClassification, tweet]);
 
   return (
-    <Grid
-      alignContent="center"
+    <HomeContainer
+      alignContent="space-evenly"
       container
       display="flex"
       justifyContent="center"
@@ -174,7 +180,7 @@ export default function Main() {
           <p style={styles.subTopText}>{main.subTopText}</p>
         </Container>
       </Grid>
-      <Grid item md={6} sm={10} style={styles.bottomContainer} xs={11.5}>
+      <Grid item md={6} sm={10} style={styles.bottomContainer} xs={11}>
         <Container
           disableGutters
           maxWidth={false}
@@ -184,7 +190,17 @@ export default function Main() {
           <DividerComponent />
           {renderTweetBottom}
         </Container>
+        <p style={styles.disclaimerText}>{main.disclaimer}</p>
       </Grid>
-    </Grid>
+    </HomeContainer>
   );
 }
+
+const HomeContainer = styled(Grid)`
+  @media (max-width: 768px) {
+    margin-top: 2.5rem;
+  }
+  @media (min-width: 769px) {
+    margin-top: -4rem;
+  }
+`;
