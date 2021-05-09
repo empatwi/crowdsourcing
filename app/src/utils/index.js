@@ -21,6 +21,11 @@ export const main = {
   tweetTopText: 'Qual é o sentimento deste comentário?',
 };
 
+export const about = {
+  text:
+    'Ajude-nos a criar uma base de dados de classificação dos sentimentos por trás de tweets em português.',
+};
+
 export const contacts = [
   {
     desc: 'Back end',
