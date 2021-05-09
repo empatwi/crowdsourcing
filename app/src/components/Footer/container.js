@@ -3,6 +3,7 @@ import { fontSize } from '../../constants';
 import { colors } from '../../utils/theme';
 
 export const FooterContainer = styled.div`
+  /* position: absolute; */
   align-items: center;
   background-color: ${colors.darkGray};
   bottom: 0;
@@ -14,8 +15,10 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   left: 0;
   padding: 0 2rem;
-  position: absolute;
   right: 0;
   width: 100vw;
   z-index: 1;
+  @media (min-width: 768px) {
+    position: absolute;
+  }
 `;

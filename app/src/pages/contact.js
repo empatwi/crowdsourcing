@@ -25,7 +25,7 @@ const Contact = () => {
   return (
     <div className={classes.root}>
       <Grid
-        alignContent="space-evenly"
+        alignContent="center"
         container
         display="flex"
         justifyContent="center"
@@ -39,7 +39,7 @@ const Contact = () => {
             key={i + Math.random().toString(36).substring(2, 15)}
             md={3}
             sm={4}
-            xs={8}
+            xs={6}
           >
             <ContactCard info={item} />
           </Grid>

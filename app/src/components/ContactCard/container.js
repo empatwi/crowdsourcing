@@ -10,5 +10,5 @@ export const CardContainer = styled.div`
   justify-content: center;
   min-height: 16rem;
   padding: 2rem 1rem;
-  width: 70%;
+  width: 90%;
 `;

@@ -17,8 +17,10 @@ const NavLogo = () => {
 };
 
 const NavLogoContainer = styled(Link)`
+  margin-left: -24px;
   max-width: 200px;
   min-width: 100px;
+  padding-top: 8px;
   width: 40vw;
 `;
 
