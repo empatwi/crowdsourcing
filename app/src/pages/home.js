@@ -69,7 +69,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    padding: '2px',
+    padding: '2px 0',
   },
   tweetContainerBottom: {
     alignItems: 'center',
