@@ -20,7 +20,13 @@ function App() {
 
   return (
     <div className={classes.root}>
-      <GridContainer alignItems="center" container justify="center" xs={12}>
+      <GridContainer
+        alignItems="center"
+        container
+        item
+        justify="center"
+        xs={12}
+      >
         <AppContainer>
           <Router>
             <Nav />
