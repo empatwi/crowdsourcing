@@ -193,7 +193,6 @@ const HomeContainer = styled(Grid)`
   }
   @media (min-width: 768px) {
     align-content: center;
-    background: red;
   }
   @media (min-height: 500px) {
     align-content: center;
