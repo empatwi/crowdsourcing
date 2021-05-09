@@ -1,5 +1,6 @@
 import { ButtonBase, SvgIcon } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { fontSize } from '../../constants';
 import { colors } from '../../utils/theme';
 
 const width = 128;
@@ -8,14 +9,16 @@ const iconSize = 24;
 const styles = {
   base: {
     color: colors.darkGray,
-    fontSize: '1.2vw',
+    fontSize: fontSize,
   },
   button: {
     alignItems: 'center',
     borderRadius: 8,
     color: colors.white,
     height: width / 4,
-    width: width,
+    maxWidth: width,
+    minWidth: width - 16,
+    padding: '4px',
   },
   buttonDisabled: {
     opacity: 0.5,

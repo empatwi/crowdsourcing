@@ -43,7 +43,7 @@ const styles = {
     marginBottom: '3rem',
   },
   topText: {
-    fontSize: '3rem',
+    fontSize: '2.5rem',
     fontWeight: 'bold',
     margin: 0,
     textAlign: 'center',
@@ -69,6 +69,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
+    padding: '2px',
   },
   tweetContainerBottom: {
     alignItems: 'center',
@@ -82,13 +83,14 @@ const styles = {
   tweetContainerTop: {
     alignItems: 'center',
     display: 'flex',
-    height: '20%',
+    height: '30%',
     justifyContent: 'center',
   },
   tweetTextTop: {
     color: colors.buttonGreen,
     fontSize: fontSize,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 };
 
