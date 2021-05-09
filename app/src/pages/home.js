@@ -58,7 +58,7 @@ const styles = {
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'space-evenly',
-    width: '80%',
+    width: '90%',
   },
   tweetContainer: {
     alignItems: 'stretch',
@@ -77,8 +77,7 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    paddingLeft: 16,
-    paddingRight: 16,
+    padding: '2px 4px',
   },
   tweetContainerTop: {
     alignItems: 'center',
@@ -174,7 +173,7 @@ export default function Main() {
           <p style={styles.subTopText}>{main.subTopText}</p>
         </Container>
       </Grid>
-      <Grid item md={6} sm={8} style={styles.bottomContainer} xs={10}>
+      <Grid item md={6} sm={10} style={styles.bottomContainer} xs={11.5}>
         <Container
           disableGutters
           maxWidth={false}
