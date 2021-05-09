@@ -30,7 +30,7 @@ export const about = {
     'As bases de dados já existentes ou são apenas para textos curtos em inglês, ou para textos em português que são longos demais para o nosso objetivo, que se limita pelos 240 caracteres permitidos pelo Twitter.',
     'ㅤㅤㅤ',
     'Alguma dúvida ou comentário? Entre em contato conosco pelo empatwiapp@gmail.com ou através das nossas redes sociais encontradas na aba de contato.',
-    'Obrigada pela ajuda!',
+    'Desde já, obrigada pela ajuda! :)',
   ],
 };
 
