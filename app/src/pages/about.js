@@ -9,7 +9,6 @@ import { colors } from '../utils/theme';
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
-    marginTop: '5rem',
   },
 }));
 
@@ -56,6 +55,9 @@ const AboutContainer = styled.div`
   padding: 2rem 1rem;
   text-align: center;
   width: 100%;
+  @media (max-width: 768px) {
+    margin-top: 5rem;
+  }
 `;
 
 const Text = styled.p`
