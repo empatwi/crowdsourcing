@@ -52,6 +52,7 @@ const styles = {
     color: colors.gray,
     fontSize: fontSize,
     margin: 0,
+    paddingBottom: '2px',
     textAlign: 'center',
   },
   tweetButtonsContainer: {
@@ -69,7 +70,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    padding: '2px 0',
+    padding: '4px 0',
   },
   tweetContainerBottom: {
     alignItems: 'center',
@@ -94,7 +95,7 @@ const styles = {
 };
 
 export default function Main() {
-  const delayInSeconds = 1;
+  const delayInSeconds = 1.5;
 
   const [tweet, setTweet] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
