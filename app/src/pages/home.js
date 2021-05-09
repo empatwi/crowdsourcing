@@ -113,9 +113,9 @@ export default function Main() {
     [tweet?.id],
   );
 
-  // useEffect(() => {
-  //   fetchTweet();
-  // }, []);
+  useEffect(() => {
+    fetchTweet();
+  }, []);
 
   useEffect(() => {
     setIsEnabled(false);
