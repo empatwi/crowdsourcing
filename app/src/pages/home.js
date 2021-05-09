@@ -42,11 +42,6 @@ const styles = {
     marginTop: 0,
     textAlign: 'center',
   },
-  topContainer: {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-  },
   topText: {
     fontSize: '2.5rem',
     fontWeight: 'bold',
@@ -167,18 +162,12 @@ export default function Main() {
   }, [isEnabled, onClassification, tweet]);
 
   return (
-    <HomeContainer
-      alignContent="space-evenly"
-      container
-      display="flex"
-      justifyContent="center"
-      minHeight="100vh"
-    >
+    <HomeContainer container display="flex" justifyContent="center">
       <Grid item xs={12}>
-        <Container disableGutters maxWidth={false} style={styles.topContainer}>
+        <TopContainer disableGutters maxWidth={false}>
           <p style={styles.topText}>{main.topText}</p>
           <p style={styles.subTopText}>{main.subTopText}</p>
-        </Container>
+        </TopContainer>
       </Grid>
       <Grid item md={6} sm={10} style={styles.bottomContainer} xs={11}>
         <Container
@@ -197,10 +186,28 @@ export default function Main() {
 }
 
 const HomeContainer = styled(Grid)`
-  @media (max-width: 768px) {
-    margin-top: 2.5rem;
+  align-content: space-evenly;
+  min-height: 90vh;
+  @media (max-height: 568px) {
+    min-height: 100vh;
   }
-  @media (min-width: 769px) {
-    margin-top: -4rem;
+  @media (min-width: 768px) {
+    align-content: center;
+    background: red;
+  }
+  @media (min-height: 500px) {
+    align-content: center;
+  }
+`;
+
+const TopContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
+  @media (min-height: 500px) {
+    margin-bottom: 4rem;
   }
 `;

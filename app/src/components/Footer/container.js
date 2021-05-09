@@ -3,7 +3,6 @@ import { fontSize } from '../../constants';
 import { colors } from '../../utils/theme';
 
 export const FooterContainer = styled.div`
-  /* position: absolute; */
   align-items: center;
   background-color: ${colors.darkGray};
   bottom: 0;

@@ -11,7 +11,7 @@ import { colors } from './utils/theme';
 
 const useStyles = makeStyles(() => ({
   root: {
-    flexGrow: 1,
+    flex: 1,
   },
 }));
 
@@ -50,13 +50,13 @@ function App() {
 
 const GridContainer = styled(Grid)`
   margin: 0;
-  height: 100vh;
 `;
 
 const AppContainer = styled.div`
   background-color: ${colors.lightGreen};
   display: flex;
   flex-direction: column;
+  flex: 1;
   margin: 0;
   width: 100vw;
 `;
