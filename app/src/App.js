@@ -54,7 +54,7 @@ const GridContainer = styled(Grid)`
 `;
 
 const AppContainer = styled.div`
-  background-color: ${colors.green};
+  background-color: ${colors.lightGreen};
   display: flex;
   flex-direction: column;
   margin: 0;
