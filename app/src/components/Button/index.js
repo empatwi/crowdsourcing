@@ -17,7 +17,7 @@ const styles = {
     color: colors.white,
     height: width / 4,
     maxWidth: width,
-    minWidth: width - 16,
+    minWidth: width - 24,
     padding: '4px',
   },
   buttonDisabled: {
