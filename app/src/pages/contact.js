@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ContactCard from '../components/ContactCard';
-import { contacts } from '../utils';
+import { contacts } from '../utils/content';
 
 const useStyles = makeStyles(() => ({
   root: {

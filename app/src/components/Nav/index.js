@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { root } from '../../constants';
-import { navBar } from '../../utils';
+import { navBar } from '../../utils/content';
 import { NavContainer } from './container';
 import NavHamburger from './hamburger';
 import NavLogo from './logo';
