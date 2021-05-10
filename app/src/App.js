@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import { root } from './constants';
-import { navBar, footer } from './utils';
+import { navBar, footer } from './utils/content';
 import { colors } from './utils/theme';
 
 const useStyles = makeStyles(() => ({
