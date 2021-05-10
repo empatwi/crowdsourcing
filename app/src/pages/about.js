@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 import { fontSize } from '../constants';
-import { about } from '../utils';
+import { about } from '../utils/content';
 import { colors } from '../utils/theme';
 
 const useStyles = makeStyles(() => ({

@@ -1,6 +1,13 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
-const baseURL = `${process.env.REACT_APP_API_URL}/tweet/`;
+import CONTEXT from '../constants';
+
+const context = CONTEXT.PROD;
+
+const baseURL =
+  context === CONTEXT.DEV
+    ? `${process.env.REACT_APP_API_URL_DEV}/tweet/`
+    : `${process.env.REACT_APP_API_URL}/tweet/`;
 
 export const getTweet = async () => {
   return await axios({ method: 'GET', url: baseURL })

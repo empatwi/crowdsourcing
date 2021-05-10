@@ -7,7 +7,8 @@ import ButtonComponent from '../components/Button';
 import DividerComponent from '../components/Divider';
 import { fontSize } from '../constants';
 import { getTweet, updateTweet } from '../helper/api';
-import { parseTweet, main } from '../utils';
+import { parseTweet } from '../utils';
+import { main } from '../utils/content';
 import { colors } from '../utils/theme';
 
 const styles = {
@@ -169,7 +170,7 @@ export default function Main() {
           <p style={styles.subTopText}>{main.subTopText}</p>
         </TopContainer>
       </Grid>
-      <Grid item md={6} sm={10} style={styles.bottomContainer} xs={11}>
+      <Grid item md={6} sm={10} style={styles.bottomContainer} xl={4} xs={11}>
         <Container
           disableGutters
           maxWidth={false}

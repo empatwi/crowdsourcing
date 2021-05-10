@@ -5,7 +5,8 @@ import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissa
 import styled from 'styled-components';
 import { fontSize } from '../../constants';
 import { getTweet, updateTweet } from '../../helper/api';
-import { parseTweet, main } from '../../utils';
+import { parseTweet } from '../../utils';
+import { main } from '../../utils/content';
 import { colors } from '../../utils/theme';
 import ButtonComponent from '../Button';
 import DividerComponent from '../Divider';
