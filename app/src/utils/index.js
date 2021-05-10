@@ -13,7 +13,7 @@ export const navBar = [
 
 export const main = {
   disclaimer:
-    'Não nos responsabilizamos por qualquer conteúdo ofensivo. Os textos aqui apresentados não são de autoria nossa.',
+    'Não nos responsabilizamos por qualquer conteúdo ofensivo. Os tweets apresentados não são de nossa autoria.',
   negative: 'Negativo',
   nullTweetText:
     'Opa! Parece que não temos conteúdo para te mostrar neste momento.',
