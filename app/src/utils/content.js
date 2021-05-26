@@ -18,6 +18,7 @@ export const main = {
   nullTweetText:
     'Opa! Parece que não temos conteúdo para te mostrar neste momento.',
   positive: 'Positivo',
+  reportText: 'Denunciar conteúdo ofensivo',
   subTopText: 'O nosso sucesso depende da sua ajuda!',
   topText: 'Contribua com o empatwi',
   tweetTopText: 'Qual é o sentimento deste comentário?',
