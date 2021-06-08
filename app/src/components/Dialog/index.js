@@ -10,6 +10,14 @@ import PropTypes from 'prop-types';
 import { main } from '../../utils/content';
 import { colors } from '../../utils/theme';
 
+const propTypes = {
+  handleCancel: PropTypes.func.isRequired,
+  handleConfirmation: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+};
+
+const defaultProps = {};
+
 const styles = {
   buttonCancel: {
     color: colors.buttonRed,
@@ -32,13 +40,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ConfirmationDialog() {
-  const [open, setOpen] = useState(false);
-
-  const handleCancel = () => {};
-
-  const handleOk = () => {};
-
+export default function ConfirmationDialog({
+  handleCancel,
+  handleConfirmation,
+  open,
+}) {
   return (
     <Dialog
       aria-describedby="alert-dialog-description"
@@ -46,7 +52,7 @@ export default function ConfirmationDialog() {
       disableBackdropClick
       disableEscapeKeyDown
       maxWidth="sm"
-      open
+      open={open}
     >
       <DialogTitle id="confirmation-dialog-title">{main.confirm}</DialogTitle>
       <DialogContent>
@@ -58,10 +64,13 @@ export default function ConfirmationDialog() {
         <Button autoFocus onClick={handleCancel} style={styles.buttonCancel}>
           {main.cancel}
         </Button>
-        <Button onClick={handleOk} style={styles.buttonConfirm}>
+        <Button onClick={handleConfirmation} style={styles.buttonConfirm}>
           {main.okay}
         </Button>
       </DialogActions>
     </Dialog>
   );
 }
+
+ConfirmationDialog.propTypes = propTypes;
+ConfirmationDialog.defaultProps = defaultProps;

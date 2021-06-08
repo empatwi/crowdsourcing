@@ -102,6 +102,7 @@ export default function Main() {
 
   const [tweet, setTweet] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
+  const [isDialogOpened, setIsDialogOpened] = useState(false);
 
   const fetchTweet = async () => {
     const returnedTweet = await getTweet();
@@ -118,6 +119,7 @@ export default function Main() {
 
   const handleReport = useCallback(() => {
     reportTweet(String(tweet?.id));
+    setIsDialogOpened(false);
     fetchTweet();
   }, [tweet]);
 
@@ -164,10 +166,12 @@ export default function Main() {
             text={main.negative}
           />
         </div>
-        <ReportText onClick={handleReport}>{main.reportText}</ReportText>
+        <ReportText onClick={() => setIsDialogOpened(true)}>
+          {main.reportText}
+        </ReportText>
       </div>
     );
-  }, [handleReport, isEnabled, onClassification, tweet?.tweet_content]);
+  }, [isEnabled, onClassification, tweet]);
 
   return (
     <HomeContainer container display="flex" justifyContent="center">
@@ -190,7 +194,11 @@ export default function Main() {
         <p style={styles.disclaimerText}>{main.disclaimer}</p>
       </Grid>
 
-      <ConfirmationDialog />
+      <ConfirmationDialog
+        handleCancel={() => setIsDialogOpened(false)}
+        handleConfirmation={handleReport}
+        open={isDialogOpened}
+      />
     </HomeContainer>
   );
 }
