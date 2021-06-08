@@ -4,6 +4,7 @@ import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import styled from 'styled-components';
 import ButtonComponent from '../components/Button';
+import ConfirmationDialog from '../components/Dialog';
 import DividerComponent from '../components/Divider';
 import { fontSize } from '../constants';
 import { getTweet, reportTweet, updateTweet } from '../helper/api';
@@ -188,6 +189,8 @@ export default function Main() {
         </Container>
         <p style={styles.disclaimerText}>{main.disclaimer}</p>
       </Grid>
+
+      <ConfirmationDialog />
     </HomeContainer>
   );
 }
