@@ -15,7 +15,7 @@ export const main = {
   cancel: 'Cancelar',
   confirm: 'Confirmar denúncia',
   confirmText:
-    'Você tem certeza que deseja denunciar este tweet como conteúdo impróprio? Esta ação é irreversível.',
+    'Você tem certeza que deseja denunciar este tweet como conteúdo ofensivo? Esta ação é irreversível.',
   disclaimer:
     'Não nos responsabilizamos por qualquer conteúdo ofensivo. Os tweets apresentados não são de nossa autoria.',
   negative: 'Negativo',
