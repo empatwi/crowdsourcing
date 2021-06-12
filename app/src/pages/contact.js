@@ -38,7 +38,7 @@ const Contact = () => {
             justifyContent="center"
             key={i + Math.random().toString(36).substring(2, 15)}
             md={3}
-            sm={4}
+            sm={5}
             xs={6}
           >
             <ContactCard info={item} />

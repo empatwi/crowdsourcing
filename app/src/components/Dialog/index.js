@@ -36,7 +36,6 @@ export default function ConfirmationDialog({
     <Dialog
       aria-describedby="alert-dialog-description"
       aria-labelledby="confirmation-dialog-title"
-      disableBackdropClick
       disableEscapeKeyDown
       maxWidth="sm"
       open={open}

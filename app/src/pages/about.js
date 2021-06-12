@@ -6,6 +6,8 @@ import { fontSize } from '../constants';
 import { about } from '../utils/content';
 import { colors } from '../utils/theme';
 
+const margin = 8;
+
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
@@ -51,12 +53,11 @@ const AboutContainer = styled.div`
   background: ${colors.white};
   border-radius: 8px;
   color: ${colors.darkGray};
-  margin-bottom: 1rem;
   padding: 2rem 1rem;
   text-align: center;
   width: 100%;
   @media (max-width: 768px) {
-    margin-top: 5rem;
+    margin: ${margin}rem 0 ${margin / 2}rem 0;
   }
 `;
 
