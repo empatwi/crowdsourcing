@@ -16,7 +16,7 @@ export const getTweet = async () => {
       return null;
     })
     .catch(err => {
-      console.log('\n==> Error log in getTweet:\n', err);
+      console.error('\n==> Error log in getTweet:\n', err);
       return null;
     });
 };
@@ -35,6 +35,24 @@ export const updateTweet = async (booleanValue, id) => {
       console.log('\n> Success log in updateTweet! :D');
     })
     .catch(err => {
-      console.log('\n==> Error log in updateTweet:\n', err);
+      console.error('\n==> Error log in updateTweet:\n', err);
+    });
+};
+
+export const reportTweet = async id => {
+  const url = `${baseURL}reported/${id}/`;
+  await axios({
+    data: {
+      reported: true,
+      reported_at: new Date()?.toISOString(),
+    },
+    method: 'PUT',
+    url: url,
+  })
+    .then(() => {
+      console.log('\n> Success log in reportTweet! :D');
+    })
+    .catch(err => {
+      console.error('\n==> Error log in reportTweet:\n', err);
     });
 };
