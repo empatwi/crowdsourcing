@@ -4,9 +4,10 @@ import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import styled from 'styled-components';
 import ButtonComponent from '../components/Button';
+import ConfirmationDialog from '../components/Dialog';
 import DividerComponent from '../components/Divider';
 import { fontSize } from '../constants';
-import { getTweet, updateTweet } from '../helper/api';
+import { getTweet, reportTweet, updateTweet } from '../helper/api';
 import { parseTweet } from '../utils';
 import { main } from '../utils/content';
 import { colors } from '../utils/theme';
@@ -30,8 +31,8 @@ const styles = {
   disclaimerText: {
     color: colors.darkGray,
     fontSize: '0.7rem',
+    fontWeight: 'bold',
     textAlign: 'center',
-    textDecoration: 'bold',
     width: '95%',
   },
   reportButton: {
@@ -78,7 +79,7 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    padding: '0.5rem 0.4rem',
+    padding: '0.5rem 0.4rem 0.1rem 0.4rem',
   },
   tweetContainerTop: {
     alignItems: 'center',
@@ -101,6 +102,7 @@ export default function Main() {
 
   const [tweet, setTweet] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
+  const [isDialogOpened, setIsDialogOpened] = useState(false);
 
   const fetchTweet = async () => {
     const returnedTweet = await getTweet();
@@ -112,8 +114,14 @@ export default function Main() {
       updateTweet(value, String(tweet?.id));
       fetchTweet();
     },
-    [tweet?.id],
+    [tweet],
   );
+
+  const handleReport = useCallback(() => {
+    setIsDialogOpened(false);
+    reportTweet(String(tweet?.id));
+    fetchTweet();
+  }, [tweet]);
 
   useEffect(() => {
     fetchTweet();
@@ -158,6 +166,9 @@ export default function Main() {
             text={main.negative}
           />
         </div>
+        <ReportText onClick={() => setIsDialogOpened(true)}>
+          {main.reportText}
+        </ReportText>
       </div>
     );
   }, [isEnabled, onClassification, tweet]);
@@ -182,6 +193,12 @@ export default function Main() {
         </Container>
         <p style={styles.disclaimerText}>{main.disclaimer}</p>
       </Grid>
+
+      <ConfirmationDialog
+        handleCancel={() => setIsDialogOpened(false)}
+        handleConfirmation={handleReport}
+        open={isDialogOpened}
+      />
     </HomeContainer>
   );
 }
@@ -209,5 +226,16 @@ const TopContainer = styled.div`
   }
   @media (min-height: 500px) {
     margin-bottom: 4rem;
+  }
+`;
+export const ReportText = styled.p`
+  align-self: flex-end;
+  color: ${colors.link};
+  cursor: pointer;
+  font-size: 0.6rem;
+  text-decoration: underline;
+  transition: all 0.3s ease-in;
+  &:hover {
+    color: ${colors.green};
   }
 `;

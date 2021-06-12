@@ -11,5 +11,6 @@ export const colors = {
   gray: '#6A6A6A',
   green: '#80BC47',
   lightGreen: '#C3DDAD',
+  link: '#4780BC',
   white: '#FFFFFF',
 };
