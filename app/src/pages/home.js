@@ -118,8 +118,8 @@ export default function Main() {
   );
 
   const handleReport = useCallback(() => {
-    reportTweet(String(tweet?.id));
     setIsDialogOpened(false);
+    reportTweet(String(tweet?.id));
     fetchTweet();
   }, [tweet]);
 
