@@ -2,7 +2,7 @@
 import axios from 'axios';
 import CONTEXT from '../constants';
 
-const context = CONTEXT.PROD;
+const context = CONTEXT.DEV;
 
 const baseURL =
   context === CONTEXT.DEV
