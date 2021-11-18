@@ -16,7 +16,6 @@ const useStyles = makeStyles(() => ({
 
 const About = () => {
   const classes = useStyles();
-  // const match = text.match('empatwiapp@gmail.com');
 
   return (
     <div className={classes.root}>
@@ -29,19 +28,14 @@ const About = () => {
       >
         <Grid container item justifyContent="center" sm={8} xs={10}>
           <AboutContainer>
-            {about?.text.map((text, i) =>
-              i === 3 ? (
-                <SpecialText
-                  key={i + Math.random().toString(36).substring(2, 15)}
-                >
-                  {text}
-                </SpecialText>
-              ) : (
-                <Text key={i + Math.random().toString(36).substring(2, 15)}>
-                  {text}
-                </Text>
-              ),
-            )}
+            {about?.text.map((text, i) => (
+              <Text
+                isUnderlined={i === 3}
+                key={i + Math.random().toString(36).substring(2, 15)}
+              >
+                {text}
+              </Text>
+            ))}
           </AboutContainer>
         </Grid>
       </Grid>
@@ -63,12 +57,7 @@ const AboutContainer = styled.div`
 
 const Text = styled.p`
   font-size: ${fontSize};
-`;
-
-const SpecialText = styled(Text)`
-  font-size: ${fontSize};
-  /* font-style: italic; */
-  text-decoration: underline;
+  text-decoration: ${props => (props.isUnderlined ? 'underline' : 'none')};
 `;
 
 export default About;
